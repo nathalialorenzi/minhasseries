@@ -1,0 +1,2 @@
+# minhasseries
+Gerenciador de séries
