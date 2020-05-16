@@ -14,8 +14,12 @@ import{
 } from 'react-router-dom'
 
 const Home = () => {
-  return <h1>Home</h1>
-}
+  return (
+    <div><br></br>
+    <img src="series6.png" class="rounded mx-auto d-block imd-fluid img-thumbnail" alt="Responsive image"/><br></br>
+    <img src="series5.png" class="rounded mx-auto d-block imd-fluid img-thumbnail" alt="Responsive image"/>
+    </div>
+  )}
 
 function App() {
   return (

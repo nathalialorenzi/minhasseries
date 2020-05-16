@@ -35,21 +35,19 @@ const Series = () => {
         return(
             <div className = 'container'>
                 <h1>Séries</h1>
-                <div><Link to='/series/novo' className='btn btn-primary'>Nova série</Link></div>           
+                <div><Link to='/series/novo' className='btn btn-info'>Nova série</Link></div>           
                 <div className='alert alert-warning' role='alert'>
                     Você não possui séries criadas.
                 </div>
-
             </div>
         )
     }
 
     return  (
-    <div className ='container'>
-        <h1>Séries</h1>
-        <div><Link to='/series/novo' className='btn btn-primary'>Nova série</Link></div>
-        <table className='table table-dark'>
-            <thead>
+    <div className ='container'><br></br>
+        <div><Link to='/series/novo' className='btn btn-info'>Nova série</Link></div><br></br>
+        <table className='table table-hover'>
+        <thead className="thead-dark">
                 <tr>
                     <th scope='col'>ID</th>
                     <th scope='col'>Nome</th>

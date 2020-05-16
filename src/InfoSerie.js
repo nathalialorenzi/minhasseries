@@ -6,7 +6,8 @@ import { Badge } from 'reactstrap'
 const InfoSerie = ({match}) => {
     const [form, setForm] = useState({})
     const [success, setSuccess] = useState(false)
-    const [mode, setMode] = useState('INFO')
+    const [mode, setMode] = useState('EDIT')
+    const [genres, setGenres] = useState([])
 
     const [data, setData] = useState({})
     useEffect(() => {
@@ -16,6 +17,13 @@ const InfoSerie = ({match}) => {
             setForm(res.data)
         })
     }, [match.params.id])
+     
+     useEffect(() => {
+        axios.get('/api/genres')
+        .then(res => {
+            setGenres(res.data.data)
+        })
+     })
 
     //custom header
     const masterHeader = {
@@ -27,13 +35,13 @@ const InfoSerie = ({match}) => {
         backgroundRepeat: 'no-repeat'
     }
 
-    const onChange = evt => {
+    const onChange = field => evt => {
         setForm({
             ...form,
-            name: evt.target.value
+            [field]: evt.target.value
         })
     }
-
+    
     const save = () => {
         axios.post('/api/series', {
             form
@@ -67,20 +75,31 @@ const InfoSerie = ({match}) => {
                     </div>
                 </div>
             </header>   
-            <div>
-                <button className='btn btn-primary' onClick={() => setMode('EDIT')}>Editar</button>
+            <div><br></br>
+                <button className='btn btn-dark m-3' onClick={() => setMode('EDIT')}>Editar</button>
             </div>
             {
                 mode === 'EDIT' &&
                 <div className='container'>
-                    <h1>Nova série</h1>
-                    <button className='btn btn-primary' onClick={() => setMode('INFO')}>Cancelar edição</button>
+                    <h3>Nova série</h3><br></br>
                     <form>
                         <div className='form-group'>
-                            <label htmlFor='name'>Nome</label>
-                            <input type='text' value={form.name} onChange={onChange} className='form-control' id='name' placeholder='Nome da Série'></input>                 
+                            <label htmlFor='name'><strong>Nome</strong></label>
+                            <input type='text' value={form.name} onChange={onChange('name')} className='form-control' id='name' placeholder='Nome da Série'></input>                 
                         </div>
-                        <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
+                        <div className='form-group'>
+                            <label htmlFor='name'><strong>Comentários</strong></label>
+                            <input type='text' value={form.comments} onChange={onChange('comments')} className='form-control' id='name' placeholder='Nome da Série'></input>                 
+                        </div>
+                        <div className='form-group'>
+                            <label htmlFor='name'><strong>Gênero</strong></label>
+                            <select className='form-control'>
+                                {genres.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>) }
+                            </select>
+                            </div>
+                                <button type='button' onClick={save} className='btn btn-success m-2'>Salvar</button>
+                                <button className='btn btn-danger' onClick={() => setMode('INFO')}>Cancelar edição</button>                         
+                            <br></br><br></br>        
                     </form>
                 </div>
             }

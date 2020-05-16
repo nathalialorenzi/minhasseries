@@ -35,21 +35,19 @@ const Generos = () => {
         return(
             <div className = 'container'>
                 <h1>Genêros</h1>      
-                <div><Link to='/generos/novo' className='btn btn-primary'>Novo genêro</Link></div>     
+                <div><Link to='/generos/novo' className='btn btn-info'>Novo genêro</Link></div>     
                 <div className='alert alert-warning' role='alert'>
                     Você não possui genêros criados.
                 </div>
-
             </div>
         )
     }
 
     return  (
-    <div className ='container'>
-        <h1>Genêros</h1>
-        <div><Link to='/generos/novo' className='btn btn-primary'>Novo genêro</Link></div>
-        <table className='table table-dark'>
-            <thead>
+    <div className ='container'><br></br>
+        <div><Link to='/generos/novo' className='btn btn-info'>Novo genêro</Link></div><br></br>
+        <table className="table table-hover" >
+            <thead className="thead-dark">
                 <tr>
                     <th scope='col'>ID</th>
                     <th scope='col'>Nome</th>

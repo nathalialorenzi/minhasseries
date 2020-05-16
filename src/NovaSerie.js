@@ -20,14 +20,14 @@ const NovaSerie = () => {
         return <Redirect to='/series'/>
     }
     return (
+        
         <div className='container'>
-            <h1>Nova Série</h1>
+            <h4>Nova Série</h4><br></br>
             <form>
                 <div className='form-group'>
-                    <label htmlFor='name'>Nome</label>
                     <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome da Série'></input>                 
                 </div>
-                <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
+                <button type='button' onClick={save} className='btn btn-success'>Salvar</button>
             </form>
         </div>
     )

@@ -16,12 +16,12 @@ import {
       setOpen(!open)
   }
   return(
-    <div className ='container'>
-      <Navbar color='light' light expand='md'>
+    <div className ='container'><br></br>
+      <Navbar color='dark' dark expand='md'>
       <NavbarBrand tag={Link} to='/'>Minhas Séries</NavbarBrand>
       <NavbarToggler onClick={toggle}/>
       <Collapse isOpen={open} navbar>
-        <Nav className='ml-auto' navbar>
+        <Nav className='ml-auto' navbar> 
         <NavItem>
             <NavLink tag={Link} to='/series'>Séries</NavLink>
           </NavItem>
@@ -30,7 +30,7 @@ import {
           </NavItem>     
         </Nav>
       </Collapse>
-    </Navbar>
+    </Navbar><br></br>
   </div>
   ) 
   } 

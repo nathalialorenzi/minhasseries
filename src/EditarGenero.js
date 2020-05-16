@@ -35,7 +35,7 @@ const EditarGenero = ({ match }) => {
                     <label htmlFor='name'>Nome</label>
                     <input type='text' value={name} onChange={onChange} className='form-control' id='name' placeholder='Nome do Genêro'></input>                 
                 </div>
-                <button type='button' onClick={save} className='btn btn-primary'>Salvar</button>
+                <button type='button' onClick={save} className='btn btn-success'>Salvar</button>
             </form>
         </div>
     )
